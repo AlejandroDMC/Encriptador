@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encriptador y Desencriptador por Daniel Monroy</title>
+  <style>
+    textarea {
+      width: 300px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encriptador y Desencriptador por Daniel Monroy</h1>
+  <textarea id="inputText" placeholder="Introduce tu texto aqui"></textarea>
+  <button onclick="encryptText()">Encriptar</button>
+  <button onclick="decryptText()">Desencriptar</button>
+  <br>
+  <textarea id="outputText" placeholder="Texto encriptado/desencriptado" readonly></textarea>
+  <button onclick="copyText()">Copiar</button>
+
+  <script>
+    function encryptText() {
+      var input = document.getElementById('inputText').value;
+      var output = '';
+
+      output = input.replace(/a/g, 'ai')
+                   .replace(/e/g, 'enter')
+                   .replace(/i/g, 'imes')
+                   .replace(/o/g, 'ober')
+                   .replace(/u/g, 'ufat');
+
+      document.getElementById('outputText').value = output;
+    }
+
+    function decryptText() {
+      var input = document.getElementById('inputText').value;
+      var output = '';
+
+      output = input.replace(/ufat/g, 'u')
+                   .replace(/ober/g, 'o')
+                   .replace(/imes/g, 'i')
+                   .replace(/enter/g, 'e')
+                   .replace(/ai/g, 'a');
+
+      document.getElementById('outputText').value = output;
+    }
+
+    function copyText() {
+      var output = document.getElementById('outputText');
+      output.select();
+      output.setSelectionRange(0, 99999); 
+      document.execCommand('copy');
+      alert('Texto copiado al portapapeles');
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
